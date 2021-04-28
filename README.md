@@ -66,8 +66,9 @@ constructr {
   retry-delay             = 3 seconds  // Give coordination service (e.g. etcd) some delay before retrying
   ttl-factor              = 2.0        // Must be greater or equal 1 + ((coordination-timeout * (1 + nr-of-retries) + retry-delay * nr-of-retries)/ refresh-interval)!
   ignore-refresh-failures = false      // Ignore failures once machine is already in "Refreshing" state. It prevents from FSM being terminated due to exhausted number of retries.
-
 }
+
+
 Coordination
 ConstructR comes with out-of-the-box support for etcd: simply depend on the "constructr-coordination-etcd" module. If you want to use some other coordination backend, e.g. Consul, simply implement the Coordination trait from the "constructr-coordination" module and make sure to provide the fully qualified class name via the constructr.coordination.class-name configuration setting.
 
